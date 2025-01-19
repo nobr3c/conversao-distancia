@@ -112,4 +112,11 @@ kubectl get all
 kubectl port-forward service/conversao-distancia 8080:80 
 Acessara em http://localhost:8080/
 
-para acessar externo
+Deletar o cluste e recriar 
+k3d cluster delete meucluster
+Criar o cluster com outro comando 
+k3d cluster create meucluster --servers 1 --agents 2 -p "8080:30000@loadbalancer"
+docker container ls
+kubectl apply -f k8s/deployment.yaml
+kubectl get all
+http://localhost:8080/
